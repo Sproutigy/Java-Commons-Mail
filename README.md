@@ -61,8 +61,8 @@ public final class MailUtil {
 #### POP3 (for receiving e-mails)
 ```java
     MailConfig pop3Config = StandardMailConfig.builder()
-        .host("imap.test.net")
         .protocol(MailConfig.Protocol.POP3)
+        .host("pop3.test.net")
         .encryption(MailConfig.Encryption.SSL)
         .username("test@sproutigy.com")
         .password("testpswd")
@@ -73,13 +73,13 @@ public final class MailUtil {
 #### IMAP (for browsing folders and receiving e-mails)
 ```java
     MailConfig imapConfig = StandardMailConfig.builder()
-        .host("imap.test.net")
         .protocol(MailConfig.Protocol.IMAP)
-        .encryption(MailConfig.Encryption.SSL)
+        .host("imap.test.net")
+        .port(993)
         .username("test@sproutigy.com")
         .password("testpswd")
         .build();
-        //default SSL port for IMAP: 993
+        //default encryption for IMAP port 993 is SSL
 ```
 
 ### Sending e-mails
